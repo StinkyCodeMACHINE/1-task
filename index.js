@@ -18,7 +18,9 @@ const createTimerAnimator = () => {
       const hoursLeft = Math.floor(timeLeft / 3600);
       const minutesLeft = Math.floor((timeLeft % 3600) / 60);
       const secondsLeft = Math.floor((timeLeft % 3600) % 60);
-      timerEl.innerText = `${hoursLeft}:${minutesLeft}:${secondsLeft}`;
+      timerEl.innerText = `${hoursLeft < 10 ? "0" : ""}${hoursLeft}:${
+        minutesLeft < 10 ? "0" : ""
+      }${minutesLeft}:${secondsLeft < 10 ? "0" : ""}${secondsLeft}`;
       timeLeft -= 1;
     }, 1000);
     intervals.push(timerId);
